@@ -10,15 +10,12 @@ def filter_even(func):
                     result.append(arg)
             elif isinstance(arg, bool):
                 result.append(arg)
-        #print(tuple(result))
         return func(*result, **kwargs)
     return wrapper
 
 def delete_short(func):
     def wrapper(*args, **kwargs):
         result = dict(filter(lambda x: len(str(x[0])) > 4, kwargs.items()))
-        #new = dict(result)
-        #print(new)
         return func(*args, **result)
     return wrapper
 
